@@ -1,0 +1,20 @@
+{
+  "name": "github-action-replace-pr-body",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiamatosa/github-action-replace-pr-body.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claudiamatosa/github-action-replace-pr-body/issues"
+  },
+  "homepage": "https://github.com/claudiamatosa/github-action-replace-pr-body#readme"
+}
