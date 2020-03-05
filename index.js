@@ -15,21 +15,25 @@ async function run() {
 
     const body = github.context.payload.pull_request.body;
 
+    console.log('initial description: ', body);
+
     if (!body) return;
 
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((currentBody, variable) => {
+      console.log('variable: ', variable);
+
       const variableName = variable.replace(/({|})/g, '');
       const replacement = variables(variableName);
 
-      core.debug('replacement: ', replacement);
-      core.debug('current description: ', currentBody);
+      console.log('replacement: ', replacement);
+      console.log('current description: ', currentBody);
 
       if(!replacement) return body;
 
       return currentBody.replace(variable, replacement);
     }, body);
 
-    core.debug('new description: ', newBody);
+    console.log('new description: ', newBody);
 
     const request = {
       owner: github.context.repo.owner,
