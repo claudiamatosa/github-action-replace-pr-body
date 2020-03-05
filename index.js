@@ -23,7 +23,7 @@ async function run() {
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, variable) => {
       console.log('variable: ', variable);
 
-      const variableName = variable.replace(/({|})/g, '');
+      const variableName = 'prNumber';
       const replacement = variables(variableName);
 
       console.log('replacement: ', replacement);
