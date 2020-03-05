@@ -20,25 +20,24 @@ async function run() {
 
     if (!body) return;
 
-    const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, variable) => {
-      console.log('variable: ', variable);
+    const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, placeholder) => {
+      console.log('placeholder: ', placeholder);
 
-      const variableName = variable.replace(/({|})/g, '');
-      const replacement = variables.prNumber;
-      // const replacement = variables(variableName);
+      // const variableName = placeholder.replace(/({|})/g, '');
+      const value = variables.prNumber;
+      // const value = variables(variableName);
 
-      // console.log('replacement: ', replacement);
+      // console.log('value: ', value);
       // console.log('current description: ', currentBody);
 
-      // if(!replacement) return contents;
+      // if(!value) return contents;
 
       // console.log(typeof currentBody.replace);
 
-      console.log('variable name', variable);
-      console.log('variable again', variable);
-      console.log('replacement', replacement);
+      console.log('placeholder', placeholder);
+      console.log('value', value);
 
-      return contents.replace(variable, replacement);
+      return contents.replace(variable, value);
 
       // return contents.replace('{{prNumber}}', variables.prNumber);
     }, body);

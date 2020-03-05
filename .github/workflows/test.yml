@@ -6,6 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: claudiamatosa/github-action-replace-pr-body@v1.0.0-test.13
+    - uses: claudiamatosa/github-action-replace-pr-body@v1.0.0-test.15
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
