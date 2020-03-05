@@ -1,0 +1,11 @@
+
+name: "unit tests"
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: claudiamatosa/github-action-replace-pr-body@v1.0.0-beta.2
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
