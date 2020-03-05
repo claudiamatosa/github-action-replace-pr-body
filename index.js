@@ -34,6 +34,8 @@ async function run() {
 
       if(!replacement) return body;
 
+      console.log(typeof currentBody.replace);
+
       return currentBody.replace(variable, replacement);
     }, body);
 
