@@ -23,11 +23,11 @@ async function run() {
       console.log(typeof variable);
       console.log('variable: ', variable);
 
-      if(!variable.replace) return body;
+      // if(!variable.replace) return body;
 
-      console.log(typeof variable.replace);
-      const variableName = variable.replace(/({|})/g, '');
-      const replacement = variables(variableName);
+      // console.log(typeof variable.replace);
+      // const variableName = variable.replace(/({|})/g, '');
+      // const replacement = variables(variableName);
 
       // console.log('replacement: ', replacement);
       // console.log('current description: ', currentBody);
@@ -38,7 +38,7 @@ async function run() {
 
       // return currentBody.replace(variable, replacement);
 
-      return body;
+      return currentBody.replace('{{prNumber}}', variables.prNumber);
     }, body);
 
     console.log('new description: ', newBody);
