@@ -20,7 +20,10 @@ async function run() {
     if (!body) return;
 
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((currentBody, variable) => {
+      console.log(typeof variable);
       console.log('variable: ', variable);
+
+      if(!variable.replace) return body;
 
       const variableName = variable.replace(/({|})/g, '');
       const replacement = variables(variableName);
