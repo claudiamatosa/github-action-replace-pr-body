@@ -29,7 +29,7 @@ And under `.github/workflows/update-pr-body.yml`
 name: Update pull-request body
 on: [pull_request]
 
-uses: claudiamatosa/github-action-replace-pr-body@v1
+uses: claudiamatosa/github-action-replace-pr-body@v1.0.0
 with:
   github-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
