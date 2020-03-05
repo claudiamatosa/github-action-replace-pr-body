@@ -1,11 +1,12 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+// Toolkit docs: https://github.com/actions/toolkit
+
 async function run() {
   try {
     const inputs = {
-      token: core.getInput('github-token', {required: true}),
-      variables: core.getInput('github-token', {required: true})
+      token: core.getInput('github-token', {required: true})
     };
 
     // Pull-request format: https://developer.github.com/v3/pulls/#response
@@ -15,34 +16,24 @@ async function run() {
 
     const body = github.context.payload.pull_request.body;
 
-    console.log('initial description: ', body);
+    console.log('Initial description: ', body);
 
     if (!body) return;
 
-    const newBody = (body.match(/{{\w+}}/g) || '').reduce((currentBody, variable) => {
-      console.log(typeof variable);
-      console.log('variable: ', variable);
-
-      if(!variable.replace) return body;
-
-      const variableName = variable.replace(/({|})/g, '');
-      const replacement = variables(variableName);
-
-      console.log('replacement: ', replacement);
-      console.log('current description: ', currentBody);
-
-      if(!replacement) return body;
-
-      return currentBody.replace(variable, replacement);
+    const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, placeholder) => {
+      const variableName = placeholder.replace(/({|})/g, '');
+      const value = variables[variableName];
+      console.log(`Replacing ${placeholder} with ${value}`);
+      return contents.replace(placeholder, value);
     }, body);
 
-    console.log('new description: ', newBody);
+    console.log('New description: ', newBody);
 
     const request = {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: github.context.payload.pull_request.number,
-      body
+      body: newBody
     };
 
     const client = new github.GitHub(inputs.token);
