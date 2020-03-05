@@ -25,6 +25,7 @@ async function run() {
 
       if(!variable.replace) return body;
 
+      console.log(typeof variable.replace);
       const variableName = variable.replace(/({|})/g, '');
       const replacement = variables(variableName);
 
