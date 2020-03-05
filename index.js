@@ -29,14 +29,16 @@ async function run() {
       const variableName = variable.replace(/({|})/g, '');
       const replacement = variables(variableName);
 
-      console.log('replacement: ', replacement);
-      console.log('current description: ', currentBody);
+      // console.log('replacement: ', replacement);
+      // console.log('current description: ', currentBody);
 
-      if(!replacement) return body;
+      // if(!replacement) return body;
 
-      console.log(typeof currentBody.replace);
+      // console.log(typeof currentBody.replace);
 
-      return currentBody.replace(variable, replacement);
+      // return currentBody.replace(variable, replacement);
+
+      return body;
     }, body);
 
     console.log('new description: ', newBody);
