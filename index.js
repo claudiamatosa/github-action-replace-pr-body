@@ -37,7 +37,7 @@ async function run() {
       console.log('placeholder', placeholder);
       console.log('value', value);
 
-      return contents.replace(variable, value);
+      return contents.replace(placeholder, value);
 
       // return contents.replace('{{prNumber}}', variables.prNumber);
     }, body);
