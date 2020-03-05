@@ -16,33 +16,18 @@ async function run() {
 
     const body = github.context.payload.pull_request.body;
 
-    console.log('initial description: ', body);
+    console.log('Initial description: ', body);
 
     if (!body) return;
 
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, placeholder) => {
-      console.log('placeholder: ', placeholder);
-
-      // const variableName = placeholder.replace(/({|})/g, '');
-      const value = variables.prNumber;
-      // const value = variables(variableName);
-
-      // console.log('value: ', value);
-      // console.log('current description: ', currentBody);
-
-      // if(!value) return contents;
-
-      // console.log(typeof currentBody.replace);
-
-      console.log('placeholder', placeholder);
-      console.log('value', value);
-
+      const variableName = placeholder.replace(/({|})/g, '');
+      const value = variables[variableName];
+      console.log(`Replacing ${placeholder} with ${value}`);
       return contents.replace(placeholder, value);
-
-      // return contents.replace('{{prNumber}}', variables.prNumber);
     }, body);
 
-    console.log('new description: ', newBody);
+    console.log('New description: ', newBody);
 
     const request = {
       owner: github.context.repo.owner,
