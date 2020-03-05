@@ -24,7 +24,8 @@ async function run() {
       console.log('variable: ', variable);
 
       const variableName = variable.replace(/({|})/g, '');
-      const replacement = variables(variableName);
+      const replacement = variables.prNumber;
+      // const replacement = variables(variableName);
 
       // console.log('replacement: ', replacement);
       // console.log('current description: ', currentBody);
@@ -33,13 +34,13 @@ async function run() {
 
       // console.log(typeof currentBody.replace);
 
-      // return contents.replace(variable, replacement);
-
       console.log('variable name', variable);
       console.log('variable again', variable);
       console.log('replacement', replacement);
 
-      return contents.replace('{{prNumber}}', variables.prNumber);
+      return contents.replace(variable, replacement);
+
+      // return contents.replace('{{prNumber}}', variables.prNumber);
     }, body);
 
     console.log('new description: ', newBody);
