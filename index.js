@@ -6,11 +6,11 @@ const jiraRE = /^[A-Z]+-\d+/
 // Toolkit docs: https://github.com/actions/toolkit
 
 async function run() {
+  console.log('PR title', github.context.payload.pull_request.title)
   try {
     const inputs = {
       token: core.getInput('github-token', {required: true})
     };
-    console.log(github.context.payload.pull_request.title)
     // Pull-request format: https://developer.github.com/v3/pulls/#response
     const variables = {
       prNumber: github.context.payload.pull_request.number,
