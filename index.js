@@ -26,7 +26,7 @@ async function run() {
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, placeholder) => {
       const variableName = placeholder.replace(/({|})/g, '');
       const value = variables[variableName];
-      console.log(`Replacing ${placeholder} with ${value}`);
+      //console.log(`Replacing ${placeholder} with ${value}`);
       return contents.replace(placeholder, value);
     }, body);
 
