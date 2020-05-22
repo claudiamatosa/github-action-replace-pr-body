@@ -6,7 +6,7 @@ const jiraRE = /^[A-Z]+-\d+/
 // Toolkit docs: https://github.com/actions/toolkit
 
 async function run() {
-  //console.log('PR title', github.context.payload.pull_request.title)
+  core.info('PR title', github.context.payload.pull_request.title)
   try {
     const inputs = {
       token: core.getInput('github-token', {required: true})
@@ -19,18 +19,18 @@ async function run() {
 
     const body = github.context.payload.pull_request.body;
 
-    //console.log('Initial description: ', body);
+    core.info('Initial description: ', body);
 
     if (!body) return;
 
     const newBody = (body.match(/{{\w+}}/g) || '').reduce((contents, placeholder) => {
       const variableName = placeholder.replace(/({|})/g, '');
       const value = variables[variableName];
-      //console.log(`Replacing ${placeholder} with ${value}`);
+      core.info(`Replacing ${placeholder} with ${value}`);
       return contents.replace(placeholder, value);
     }, body);
 
-    //console.log('New description: ', newBody);
+    core.info('New description: ', newBody);
 
     const request = {
       owner: github.context.repo.owner,
