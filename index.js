@@ -47,7 +47,6 @@ async function run() {
       core.error('There was an issue while trying to update the pull-request.');
     }
   } catch (error) {
-    core.info(error);
     core.error(error);
     core.setFailed(error.message);
   }
