@@ -1,6 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+const jiraRE = /^[A-Z]+-\d+/
+
 // Toolkit docs: https://github.com/actions/toolkit
 
 async function run() {
@@ -11,7 +13,8 @@ async function run() {
 
     // Pull-request format: https://developer.github.com/v3/pulls/#response
     const variables = {
-      prNumber: github.context.payload.pull_request.number
+      prNumber: github.context.payload.pull_request.number,
+      jiraTicket: github.context.payload.pull_request.title.match(jiraRE)
     };
 
     const body = github.context.payload.pull_request.body;
