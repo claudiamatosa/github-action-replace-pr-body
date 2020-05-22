@@ -21,6 +21,7 @@ Under `.github/PULL_REQUEST_TEMPLATE.md`:
 
 ```
 Link to review app: http://app-{{prNumber}}.example.com
+Jira ticket: {{jiraTicket}}
 ```
 
 And under `.github/workflows/update-pr-body.yml`
