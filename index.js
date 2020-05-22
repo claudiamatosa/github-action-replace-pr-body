@@ -10,7 +10,7 @@ async function run() {
     const inputs = {
       token: core.getInput('github-token', {required: true})
     };
-
+    console.log(github.context.payload.pull_request.title)
     // Pull-request format: https://developer.github.com/v3/pulls/#response
     const variables = {
       prNumber: github.context.payload.pull_request.number,
