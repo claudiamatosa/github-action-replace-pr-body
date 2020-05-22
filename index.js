@@ -40,7 +40,8 @@ async function run() {
     };
 
     const client = new github.GitHub(inputs.token);
-    const response = await client.pulls.update(request);
+    const response = await client.pulls.update(request)
+      .catch(err => { throw err });
 
     if (response.status !== 200) {
       core.error('There was an issue while trying to update the pull-request.');
