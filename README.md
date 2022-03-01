@@ -6,6 +6,7 @@ and replaces the variables below with information from the pull-request.
 ## Available variables
 
 `prNumber`
+`branchName`
 
 More to be added in the future.
 
