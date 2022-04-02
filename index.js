@@ -11,7 +11,8 @@ async function run() {
 
     // Pull-request format: https://developer.github.com/v3/pulls/#response
     const variables = {
-      prNumber: github.context.payload.pull_request.number
+      prNumber: github.context.payload.pull_request.number,
+      branchName: github.context.payload.pull_request.head.ref,
     };
 
     const body = github.context.payload.pull_request.body;
