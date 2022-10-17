@@ -1,11 +1,10 @@
-
-name: 'Replace pull-request body'
-description: 'A github action to replace pull request variables inside the pull-request body'
-author: 'Claudia Matosa'
+name: "Replace pull-request body"
+description: "A github action to replace pull request variables inside the pull-request body"
+author: "Claudia Matosa"
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: "node16"
+  main: "index.js"
 inputs:
   github-token:
-    description: 'The GITHUB_TOKEN secret'
+    description: "The GITHUB_TOKEN secret"
     required: true
