@@ -3,7 +3,7 @@ description: "A github action to replace pull request variables inside the pull-
 author: "Claudia Matosa"
 runs:
   using: "node16"
-  main: "index.js"
+  main: "dist/index.js"
 inputs:
   github-token:
     description: "The GITHUB_TOKEN secret"

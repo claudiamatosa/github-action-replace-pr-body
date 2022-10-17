@@ -2,12 +2,14 @@
   "name": "github-action-replace-pr-body",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.ts",
   "engines": {
     "node": "16.14.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "ncc build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,12 @@
   },
   "homepage": "https://github.com/claudiamatosa/github-action-replace-pr-body#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^2.1.1"
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  },
+  "devDependencies": {
+    "@octokit/webhooks-definitions": "^3.67.3",
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.8.4"
   }
 }
