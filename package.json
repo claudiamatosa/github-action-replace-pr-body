@@ -22,6 +22,6 @@
   "homepage": "https://github.com/claudiamatosa/github-action-replace-pr-body#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^2.1.1"
+    "@actions/github": "^5.1.1"
   }
 }
