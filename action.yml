@@ -2,7 +2,7 @@ name: "Replace pull-request body"
 description: "A github action to replace pull request variables inside the pull-request body"
 author: "Claudia Matosa"
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
 inputs:
   github-token:
